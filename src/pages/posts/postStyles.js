@@ -85,3 +85,34 @@ export const PostError = styled.div`
   justify-content: center;
   margin-top: 10px;
 `;
+
+export const CreateButton = styled.button`
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  width: 250;
+  transition: 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+    background: black;
+    color: white;
+  }
+
+  &:disabled {
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 250;
+    transition: 0.3s;
+    background-color: lightgrey;
+    opacity: 0.7;
+
+    &:hover {
+      cursor: not-allowed;
+      background-color: grey;
+    }
+  }
+`;
