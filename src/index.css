@@ -39,7 +39,6 @@ code {
   transition: .3s;
   text-decoration: none;
   display: flex;
-  /* transform: rotate(360deg) */
 }
 
 .navWrapper{
