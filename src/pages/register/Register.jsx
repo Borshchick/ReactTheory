@@ -1,13 +1,11 @@
-import { Wrapper } from "../../components/header/styles"
+import AuthLayout from "../../components/auth/AuthLayout";
 
 
-const RegForm = () => {
+const RegisterPage = () => {
 
-    return(
-        <Wrapper background='orange'>
-            <h1>Sign Up</h1>
-        </Wrapper>
-    )
-}
+  return (
+    <AuthLayout isRegister/>
+  );
+};
 
-export default RegForm
+export default RegisterPage;

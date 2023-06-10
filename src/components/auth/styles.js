@@ -20,30 +20,9 @@ export const LogIn = styled.h1`
     display: flex;
     justify-content: center;
 `
-export const Input = styled.input`
-    background-color: transparent;
-    outline: none;
-    border: none;
-    row-gap: 30px;
-    margin-bottom: 40px;
-    border-bottom: 1px solid black;
-`
 
-export const ShowpasswrdButton = styled.button`
-    position: absolute;
-    top: 608px;
-    right: 450px;
-    border: none;
-    transition: .3s;
-    background-color: black;
-    color: white;
-    border-radius: 20px;
-    &:hover{
-        cursor: pointer;
-        background-color: white;
-        color: black;
-    }
-`
+
+
 export const LogInMenu = styled.div`
     display: flex;
     flex-direction: row;
