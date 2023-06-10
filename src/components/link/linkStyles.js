@@ -5,10 +5,6 @@ export const Link = styled.div`
   padding: 50px;
   list-style-type: none;
   padding-left: 40px;
-  transition: all .3s;
-  &:hover{
-    font-size: 22px;
-  }
 `;
 
 export const Navigation = styled.nav`

@@ -37,7 +37,6 @@ const Posts = () => {
       setPosts([...posts, { ...values, id: Date.now() }]);
       setError("");
       setValues(keys);
-      setIsDisabled(true)
     } else {
       setError("Ви ввели не всі дані");
     }
