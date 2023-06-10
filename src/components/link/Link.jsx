@@ -1,19 +1,19 @@
-// import {useState} from "react"
-import { Link as Links} from './linkStyles'
-import {
-    NavLink,
-    useLocation,
-  } from "react-router-dom";
-
-  
+import { useLocation } from "react-router-dom";
+import { LinkStyles, Link as Links } from "./linkStyles";
 
 const Link = (props) => {
-    const location = useLocation();
-    return(
-        <Links>
-            <NavLink to={props.url} className={location.pathname === props.url ? "link_active" : "NavA"} href={props.url}>{props.label}</NavLink>
-        </Links>
-    )
-}
+  const location = useLocation();
+  return (
+    <Links>
+      <LinkStyles
+        to={props.url}
+        href={props.url}
+        isActive={location.pathname === props.url}
+      >
+        {props.label}
+      </LinkStyles>
+    </Links>
+  );
+};
 
-export default Link
+export default Link;

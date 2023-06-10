@@ -1,58 +1,69 @@
-
 import { useState } from "react";
-import { Column, Container, DeleteButton, Input, MainPostWrapper, MainWrapper, PostButton, PostError, PostID, PostTheme, PostWrapper } from "./postStyles";
 import { Wrapper } from "../../components/header/styles";
+import {
+  Column,
+  Container,
+  CreateButton,
+  DeleteButton,
+  Input,
+  MainPostWrapper,
+  MainWrapper,
+  PostButton,
+  PostError,
+  PostID,
+  PostTheme,
+  PostWrapper,
+} from "./postStyles";
 
 const inputs = [
-    { name: "theme", placeholder: "Post Theme" },
-    { name: "title", placeholder: "Title" },
-    { name: "description", placeholder: "Description" },
-  ];
+  { name: "theme", placeholder: "Post Theme" },
+  { name: "title", placeholder: "Title" },
+  { name: "description", placeholder: "Description" },
+];
 
-const keys = {}
+const keys = {};
 inputs.forEach((input) => {
-    keys[input.name] = ''
-})
-
+  keys[input.name] = "";
+});
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-  const [values, setValues] = useState(keys)
-  const [error, setError] = useState('')
+  const [values, setValues] = useState(keys);
+  const [error, setError] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const addPost = () => {
-    if(values.theme && values.title && values.description){
-        setPosts([...posts, {...values, id: Date.now()}])
-        setError('')
-        setValues(keys)
-        button.classList.add('addButtonNotActive')
-        button.classList.remove('addButton')
-    }else{
-        setError('Ви ввели не всі дані')
+    if (values.theme && values.title && values.description) {
+      setPosts([...posts, { ...values, id: Date.now() }]);
+      setError("");
+      setValues(keys);
+      setIsDisabled(true)
+    } else {
+      setError("Ви ввели не всі дані");
     }
-    
   };
 
-  let button = document.querySelector('button')
-
-  const activeButton = () => {   
-    if(values.theme && values.title && values.description){
-      button.classList.remove('addButtonNotActive')
-      button.classList.add('addButton')
-      console.log(1)
-    }else{
-      button.classList.add('addButtonNotActive')
-    }
-  }
   const deletePost = (id) => {
     const del = posts.filter((post) => post.id !== id);
     setPosts(del);
   };
-  const onChange = (e) =>{
-    const name = e.target.name
-    const value = e.target.value
-    setValues({...values, [name]: value})
-  }
+  const onChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const newValues = { ...values, [name]: value };
+
+    setValues(newValues);
+
+    let filledValues = 0;
+
+    Object.values(newValues).forEach((value) => {
+      if (value) {
+        filledValues++;
+      }
+    });
+
+    setIsDisabled(filledValues !== 3);
+  };
   return (
     <MainWrapper>
       <MainPostWrapper>
@@ -63,19 +74,17 @@ const Posts = () => {
           <Column>
             {inputs.map((input) => (
               <Input
-                onKeyUp ={activeButton}
-               value={values[input.name]}
+                value={values[input.name]}
                 onChange={onChange}
                 key={input.name}
                 {...input}
                 type="text"
-
               />
             ))}
 
-            <button className="addButtonNotActive" onClick={addPost}>
+            <CreateButton disabled={isDisabled} onClick={addPost}>
               Create Post
-            </button>
+            </CreateButton>
             {error && <PostError>Error: {error} </PostError>}
           </Column>
           {posts.map((post) => (
@@ -88,9 +97,7 @@ const Posts = () => {
                 </article>
               </div>
               <PostButton>
-                <DeleteButton
-                  onClick={() => deletePost(post.id)}
-                >
+                <DeleteButton onClick={() => deletePost(post.id)}>
                   Delete Post
                 </DeleteButton>
               </PostButton>

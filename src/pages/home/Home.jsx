@@ -1,14 +1,17 @@
+
 import { Wrapper } from "../../components/header/styles"
 
 
+
 const Home = () => {
+
     return(
-        <Wrapper background='Orange'>
+        <>
+            <Wrapper background='Orange'>
             <h1>Home Page</h1>
-        </Wrapper>
-        
+            </Wrapper>
+        </>
     )
-    
 }
 
 export default Home

@@ -10,7 +10,8 @@ import {
 import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Posts from './pages/posts/Posts';
-
+import Login from './pages/login/Login'
+import Register from './pages/register/Register'
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/About' element={<About/>}/>
         <Route path='/Posts' element={<Posts/>}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/reg' element={<Register />}/>
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>
     </>
