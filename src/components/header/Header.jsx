@@ -12,7 +12,7 @@ const Header = (props) => {
     { label: "Home", url: "/" },
     { label: "About", url: "/about" },
     { label: "Posts", url: "/posts" },
-    { label: "Login", url: "/login"}
+    { label: "Login", url: "/login"},
   ];
   const asyncFunc = async () => {
     const response = await axios.get(
