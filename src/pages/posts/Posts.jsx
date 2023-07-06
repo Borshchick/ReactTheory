@@ -112,3 +112,70 @@ const Posts = () => {
 };
 
 export default Posts;
+
+
+
+
+// import { useDispatch, useSelector } from "react-redux";
+// import { saveInputValue, validateForm } from "./FormAction";
+// const Posts = () => {
+//   const inputs = useSelector((state) => state.inputs);
+//   const errors = useSelector((state) => state.errors);
+//   const dispatch = useDispatch();
+//   const handleInputChange = (event, inputName) => {
+//     const value = event.target.value;
+//     dispatch(saveInputValue(inputName, value));
+//   };
+//   const handlуSubmit = (event) => {
+//     event.preventDefault();
+//     dispatch(validateForm());
+//   };
+//   const addPost = () => {
+//     console.log(inputs)
+//   };
+//   return (
+//     <form onSubmit={handlуSubmit}>
+//       <div>
+//         <label>
+//           Post Name
+//           <input
+//             type="text"
+//             value={inputs.name}
+//             onChange={(event) => handleInputChange(event, "name")}
+//           />
+//           {errors.name && <div>{errors.name}</div>}
+//         </label>
+//       </div>
+//       <div>
+//         <label>
+//           Post Theme
+//           <input
+//             type="text"
+//             value={inputs.theme}
+//             onChange={(event) => handleInputChange(event, "theme")}
+//           />
+//           {errors.theme && <div>{errors.theme}</div>}
+//         </label>
+//       </div>
+//       <div>
+//         <label>
+//           Description
+//           <input
+//             type="text"
+//             value={inputs.description}
+//             onChange={(event) => handleInputChange(event, "description")}
+//           />
+//           {errors.description && <div>{errors.description}</div>}
+//         </label>
+//       </div>
+//       <div>
+//         <button type="submit" onClick={addPost}>
+//           Submit
+//         </button>
+
+//       </div>
+//     </form>
+//   );
+// };
+
+// export default Posts;
